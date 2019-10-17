@@ -1,0 +1,56 @@
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.wrap {
+  padding: 200px 50px; }
+
+.input-item {
+  position: relative; }
+  .input-item input[type="text"] {
+    padding: 0 10px 0 35px;
+    width: 180px;
+    height: 32px;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    background: #ff037a;
+    box-shadow: 0 0 20px 0px rgba(255, 3, 122, 0.6); }
+    .input-item input[type="text"]:focus {
+      outline: none; }
+  .input-item .icon-face-smile {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transform: translate(0, -50%); }
+    .input-item .icon-face-smile .mouth {
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      width: 9px;
+      height: 4px;
+      border: 1px solid #fff;
+      border-radius: 0 0 50% 50%/0 0 100% 100%;
+      border-top: none;
+      transform: translate(-50%); }
+    .input-item .icon-face-smile:before, .input-item .icon-face-smile:after {
+      position: absolute;
+      content: "";
+      top: 4px;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: #fff; }
+    .input-item .icon-face-smile:before {
+      left: 2px; }
+    .input-item .icon-face-smile:after {
+      right: 2px; }
+  .input-item .icon-search {
+    position: absolute; }
+
+/*# sourceMappingURL=style.css.map */

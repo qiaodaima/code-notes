@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输入框效果</title>
+    <style>
+      * {margin: 0;padding: 0; box-sizing: border-box; list-style: none;}
+      body {font-size: 14px;color: #333; line-height: 1.5;}
+
+      body{padding: 300px 200px;}
+      .demo-wrap {padding: 20px 20px;}
+      .demo-wrap .tips {color: red;font-size: 12px;}
+      .demo-wrap .input-item {margin: 0 auto;}
+
+      .input-item {position: relative; width: 300px;}
+      .input-item input[type="text"] {
+        z-index: 10;
+        position: relative; display: block;
+        width: 100%; height: 30px;
+        color: #666; font: inherit;
+        border: none; border-bottom: 1px solid #eee;
+        background: transparent;
+        caret-color:#f90;
+        outline: none;
+      }
+      .input-item.done  .tips,
+      .input-item input[type="text"]:focus ~ .tips {
+        top: -20px;
+        color: #009a61;
+        transform: translate(0, 0);
+      }
+      .input-item .tips {
+        position: absolute;
+        left: 0; top: 50%;
+        transform: translate(0, -50%);
+        transition: all .3s;
+        color: #999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-wrap">
+      <p class="tips">鼠标移入移出</p>
+      <div class="input-item">
+        <input type="text" maxlength="11">
+        <span class="tips">请输入手机号码</span>
+      </div>
+    </div>
+
+    <script src="./jquery-3.1.1.min.js"></script>
+    <script>
+      $(function() {
+        $('.input-item').on('change', function() {
+          var _this = $(this);
+          var val = _this.find('input[type="text"]').val();
+
+          val.length ? $(this).addClass('done') : $(this).removeClass('done');
+        });
+      });
+    </script>
+  </body>
+</html>

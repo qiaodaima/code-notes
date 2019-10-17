@@ -1,0 +1,80 @@
+*{margin:0;padding:0;list-style:none;}
+body{background:#f3f3f3;}
+.clearfix:after{display:block;clear:both;content:"";height:0;}
+.main-width{margin:20px auto;width:1288px;}
+
+.pic-box{
+    float:left;
+    padding:10px;margin:20px 0 0 20px;
+    width:280px;
+    border:1px solid #ddd;border-radius:6px;
+    background:#fff;
+}
+
+.pic-box p{
+    color: #000;font-weight: bold;
+}
+.pic-box p small{
+    margin-left:5px;
+    color:red;
+}
+.pic-box p.attr{
+    font-weight: normal;color:red;
+}
+.pic-box img{
+    display:block;
+    margin-top:5px;
+    width:100%;height:100%;
+    font-weight: normal;
+    transition:all 0.2s;
+}
+
+.pic-box:hover.blur img{
+    -webkit-filter:blur(5px);
+            filter:blur(5px);
+}
+
+.pic-box:hover.grayscale img{
+    -webkit-filter:grayscale(100%);
+            filter:grayscale(100%);
+}
+
+.pic-box:hover.sepia img{
+    -webkit-filter:sepia(100%);
+            filter:sepia(100%);
+}
+
+.pic-box:hover.saturate img{
+    -webkit-filter:saturate(500%);
+            filter:saturate(500%);
+}
+
+.pic-box:hover.hue-rotate img{
+    -webkit-filter:hue-rotate(180deg);
+            filter:hue-rotate(180deg);
+}
+
+.pic-box:hover.invert img{
+    -webkit-filter:invert(100%);
+            filter:invert(100%);
+}
+
+.pic-box:hover.opacity img{
+    -webkit-filter:opacity(50%);
+            filter:opacity(50%);
+}
+
+.pic-box:hover.brightness img{
+    -webkit-filter:brightness(50%);
+            filter:brightness(50%);
+}
+
+.pic-box:hover.contrast img{
+    -webkit-filter:contrast(500%);
+            filter:contrast(500%);
+}
+
+.pic-box:hover.drop-shadow img{
+    -webkit-filter:drop-shadow(5px 5px 5px red);
+            filter:drop-shadow(5px 5px 5px red);
+}

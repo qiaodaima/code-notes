@@ -1,0 +1,60 @@
+body{overflow:hidden;}
+.wrap{margin:20px auto 0;padding:20px;width:1000px;border:1px solid #ddd;overflow:hidden;}
+.wrap .item{margin:20px auto;width:150px;height:150px;line-height:150px;border-radius:6px;text-align:center;font-size:16px;color:#555;background:#ddd;}
+
+
+
+
+
+.wrap .one{
+    animation: left 1s ease 3s;
+    animation-fill-mode :backwards;
+}
+.wrap .two{
+    animation: up 1s ease 1s;
+    animation-fill-mode :backwards;
+}
+.wrap .three{
+    animation: scale 1s ease 0s infinite;
+    animation-fill-mode :backwards;
+}
+.wrap .four{
+    animation: down 1s ease 2s;
+    animation-fill-mode :backwards;
+}
+.wrap .five{
+    animation: right 1s ease 4s;
+    animation-fill-mode :backwards;
+}
+
+
+
+
+@keyframes left
+{
+    0%   {display:none;transform:translate(-1000px,0);}
+    100% {display:block;transform:translate(0,0);}
+}
+
+@keyframes right
+{
+    0%   {display:none;transform:translate(1000px,0);}
+    100% {display:block;transform:translate(0,0);}
+}
+@keyframes scale
+{
+    0%   {opacity:0;transform:scale(0.1,0.1);}
+    50%   {opacity:1;transform:scale(1,1);}
+    100% {opacity:0;transform:scale(0.1,0.1);}
+}
+@keyframes down
+{
+    0%   {display:none;transform:translate(0,-1000px);}
+    100% {display:block;transform:translate(0,0);}
+}
+
+@keyframes up
+{
+    0%   {display:none;transform:translate(0,1000px);}
+    100% {display:block;transform:translate(0,0);}
+}

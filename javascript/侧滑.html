@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>划动</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				background: #000000;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			.main {
+				width: 375px;
+				height: 400px;
+				margin: 0 auto;
+				background: #f4f5f6;
+			}
+			
+			.slide li {
+				position: relative;
+				width: 100%;
+				background: #fff;
+			}
+			
+			.left {
+				width: 100%;
+				height: 80px;
+				line-height: 80px;
+				box-sizing: border-box;
+				padding: 0 140px 0 20px;
+				-wekbit-transition: all .5s linear;
+				transition: all .5s linear;
+			}
+			
+			.right {
+				position: absolute;
+				width: 0;
+				height: 80px;
+				top: 0;
+				right: 0;
+				display: -webkit-box;
+				display: box;
+				-wekbit-transition: all .5s linear;
+				transition: all .5s linear;
+			}
+			
+			.btn {
+				display: -webkit-box;
+				display: box;
+				-webkit-box-flex: 1;
+				box-flex: 1;
+				overflow: hidden;
+			}
+			
+			.right .btn:first-child {
+				background: #007AFF;
+			}
+			
+			.right .btn:last-child {
+				background: #F35047;
+			}
+			
+			.right .btn button {
+				width: 50px;
+				height: 80px;
+				background: transparent;
+				border: none;
+				color: #fff;
+			}
+			.right .btn:first-child button {
+				width: 90px;
+				height: 80px;
+				background: transparent;
+				border: none;
+				color: #fff;
+			}
+			
+			.slided .left {
+				-webkit-transform: translateX(-100px);
+				transform: translateX(-100px);
+			}
+			
+			.slided .right {
+				width: 140px;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+
+			<ul class="slide">
+
+				<li>
+					<div class="left">滑动我吧少年</div>
+					<div class="right">
+						<div class="btn">
+							<button>四个字的</button>
+						</div>
+						<div class="btn">
+							<button>两字</button>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+
+		</div>
+		<script type="text/javascript">
+			var startx, starty;
+
+			function getDirection(startx, starty, endx, endy) {
+				var angx = endx - startx;
+				var angy = endy - starty;
+				var result = 0;
+
+
+				if(Math.abs(angx) < 2 && Math.abs(angy) < 2) {
+					return result; //划动距离太短无效
+				}
+				var angle = Math.atan2(angy, angx) * 180 / Math.PI;
+				if(angle >= -135 && angle <= -45) {
+					result = 1; //上划
+				} else if(angle > 45 && angle < 135) {
+					result = 2; //下划
+				} else if((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+					result = 3; //左划
+				} else if(angle >= -45 && angle <= 45) {
+					result = 4; //右划
+				}
+
+				return result;
+			}
+
+			var slidesin = document.querySelector(".slide li");
+
+			slidesin.addEventListener("touchstart", function(e) {
+				startx = e.touches[0].pageX;
+				starty = e.touches[0].pageY;
+			}, false);
+
+			slidesin.addEventListener("touchend", function(e) {
+				var endx, endy;
+				endx = e.changedTouches[0].pageX;
+				endy = e.changedTouches[0].pageY;
+
+				var direction = getDirection(startx, starty, endx, endy);
+
+				switch(direction) {
+					case 0:
+						break;
+					case 1:
+						console.log("上划")
+						break;
+					case 2:
+						console.log("下划")
+						break;
+					case 3:
+						console.log("左划")
+						slidesin.className = 'slided';
+						break;
+					case 4:
+						console.log("右划")
+						slidesin.className = '';
+						break;
+					default:
+				}
+			}, false);
+		</script>
+	</body>
+
+</html>

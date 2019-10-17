@@ -1,0 +1,132 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\000031}}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\000032}}
+a {
+  text-decoration: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\000033}}
+body {
+  padding: 50px 100px 0;
+  background: #f3f3f3;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\000036}}
+.tips {
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #409eff;
+  font-size: 18px;
+  font-weight: bold;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000316}}
+.demo-wrap {
+  position: relative;
+  padding: 28px;
+  height: 600px;
+  border: 1px solid #e1e1e1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000322}}
+.demo-wrap .item-1 {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 80px;
+  height: 80px;
+  background-image: linear-gradient(351deg, #2eead3 0%, #1b9422 100%);
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000328}}
+.demo-wrap .item-1:hover {
+  opacity: 0.8;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000335}}
+.control {
+  position: absolute;
+  border: 1px dashed #000;
+  cursor: move;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000342}}
+.control .point {
+  position: absolute;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  text-indent: -99999px;
+  background: #409eff;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000350}}
+.control .point.top-left, .control .point.top-center, .control .point.top-right {
+  top: -5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000356}}
+.control .point.top-left {
+  left: -5px;
+  cursor: nw-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000360}}
+.control .point.top-center {
+  left: 50%;
+  margin-left: -5px;
+  cursor: n-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000365}}
+.control .point.top-right {
+  right: -5px;
+  cursor: ne-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000370}}
+.control .point.center-left, .control .point.center-right {
+  top: 50%;
+  margin-top: -5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000376}}
+.control .point.center-left {
+  left: -5px;
+  cursor: w-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000380}}
+.control .point.center-right {
+  right: -5px;
+  cursor: e-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000385}}
+.control .point.bottom-left, .control .point.bottom-center, .control .point.bottom-right {
+  bottom: -5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000391}}
+.control .point.bottom-left {
+  left: -5px;
+  cursor: sw-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\0000395}}
+.control .point.bottom-center {
+  left: 50%;
+  margin-left: -5px;
+  cursor: s-resize;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\00003100}}
+.control .point.bottom-right {
+  right: -5px;
+  cursor: se-resize;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/codeNotes\/javascript\/\%E6\%8B\%96\%E6\%8B\%BD\/sass\/style\.scss}line{font-family:\00003108}}
+.selection {
+  position: absolute;
+  border: 1px solid #409eff;
+  text-indent: -9999px;
+  background: rgba(64, 160, 255, 0.15);
+}
+
+/*# sourceMappingURL=style.css.map */

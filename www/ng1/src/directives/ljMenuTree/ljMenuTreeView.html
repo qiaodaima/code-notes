@@ -1,0 +1,20 @@
+<div class="frame-menu-wrap animated fadeIn">
+    <!-- 菜单列表 开始 -->
+    <ul class="p-menu-list">
+        <li ng-repeat="menu in menus">
+            <a class="meun-item title" href="javascript:;">
+                <i ng-class=" {true: menu.iconLeft,false: 'fa-folder-o'} [undefined != menu.iconLeft] " class="ico-left"></i>
+                <span class="text">{{menu.text}}</span>
+            </a>
+            <ul ng-if="undefined != menu.children" class="inner-menu-wrap">
+                <li ng-repeat=" children in menu.children">
+                    <a ui-sref="{{children.hrefUrl}}" class="meun-item" href="javascript:;">
+                        <i ng-class=" {true: children.iconLeft,false: 'fa-file-text-o'} [undefined != children.iconLeft] " class="ico-left"></i>
+                        <span class="text">{{children.text}}</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- 菜单列表 结束 -->
+</div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡动画</title>
+    <style>
+      * {margin: 0;padding: 0;list-style: none; box-sizing: border-box;}
+      body {background: #f3f3f3;}
+
+      .tab-nav {
+        position: relative;
+        overflow-x: auto;
+        background: #fff;
+      }
+      .tab-nav .move-tag {
+        position: absolute;
+        left: 0; bottom: 0px;
+        width: 20px; height: 3px;
+        border-radius: 1000px;
+        background: rgba(255, 0, 0, 1);
+        transition: all .5s ease;
+      }
+      .tab-nav ul {
+        font-size: 0;
+        white-space:nowrap;
+      }
+      .tab-nav li {
+        position: relative;
+        display: inline-block;
+        padding:10px  40px;
+        width: 35%;
+        height: 40px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .tab-nav li .tag {
+        position: absolute;
+        bottom: 5px; left: 50%;
+        width: 20px; height: 3px;
+        border-radius: 1000px;
+        background: rgba(255, 0, 0, .2);
+        transform: translate( -50%, 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tab-nav">
+      <div class="move-tag"></div>
+      <ul>
+        <li>
+          <span>选项卡1</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡2</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡3</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡4</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡5</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡6</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡7</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡8</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡9</span>
+          <i class="tag"></i>
+        </li>
+        <li>
+          <span>选项卡10</span>
+          <i class="tag"></i>
+        </li>
+      </ul>
+    </div>
+
+    <div class="scroll-test" style="margin-top: 20px; overflow-x: auto;">
+      <button>点击我</button>
+      <div class="inner" style="width: 10000px; height: 80px; background: pink;">毛主席万岁！！！</div>
+    </div>
+
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+      var moveTag = function() {
+        var margin = $('.tab-nav').find('li.curr .tag').offset().left;
+        var fixMargin = $('.tab-nav').scrollLeft();
+
+        $('.tab-nav .move-tag').css({
+          left: margin + fixMargin
+        });
+      }
+
+      $('.tab-nav').on('click', 'li', function () {
+        $(this).addClass('curr').siblings().removeClass('curr');
+        moveTag();
+      });
+
+      $('.tab-nav li').eq(0).trigger('click');
+
+      $('button').on('click', function () {
+        $('.scroll-test').animate({
+          scrollLeft: $('.scroll-test')[0].scrollWidth
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>图片懒加载-优化</title>
+        <style>
+            * {margin: 0;padding: 0;box-sizing: border-box;}
+            body {padding: 30px 20px;}
+
+            .lazyImg {
+                position: relative;
+                margin-top: 25px;
+                height: 260px;
+                background: no-repeat center / cover;
+            }
+            .lazyImg:first-child {
+                margin-top: 0;
+            }
+            .lazyImg:before {
+                opacity: 1;
+                pointer-events: none;
+                position: absolute;
+                content: "";
+                left: 0; right: 0; top: 0; bottom: 0;
+                transition: opacity .3s ease-in;
+                background: yellow;
+                background: url("./images/default.png") no-repeat center / cover;
+            }
+            .lazyImg.load::before {
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="./js.js"></script>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>路由</title>
+    <style>
+      *{margin: 0;padding: 0;list-style:none;text-decoration: none;}
+      body{padding:30px 150px;}
+      fieldset{margin-bottom: 40px;padding: 25px;width:700px;border:1px solid #ddd;}
+      legend{padding: 0 10px;}
+      a{display: inline-block;margin-right: 5px; padding: 2px 15px;border: 1px solid #ddd;color: #555;}
+      a + div{margin-top: 5px; height: 120px;line-height: 120px;text-align: center;background: #f3f3f3;}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <fieldset>
+        <legend>简单路由、路由命名</legend>
+
+        <router-link to="/index">首页</router-link>
+        <router-link :to="{name: 'about'}">关于我们</router-link>
+        <router-link to="/join-us">加入我们</router-link>
+        <router-view></router-view>
+      </fieldset>
+
+      <fieldset>
+          <legend>动态路由匹配、路由命名、命名视图</legend>
+
+          <router-link to="/user/110">用户信息</router-link>
+          <router-link to="/user/15/'120'">某个部门的用户信息</router-link>
+          <router-link to="/user/20/quit/119">离职用户信息</router-link>
+          <router-link :to="{name: 'searchEntryUserInfo', params: {deptId: 456, id: 700}}">某个部门的入职用户信息</router-link>
+          <router-view name="userInfo"></router-view>
+      </fieldset>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+      // 视图组件
+      const Index = {template: `<div>首页</div>`};
+      const AboutUs = {template: `<div>关于我们</div>`};
+      const JoinUs = {template: `<div>加入我们</div>`};
+      const UserInfo = {template: `<div>用户信息</div>`};
+      const DeptUserInfo = {template: `<div>某个部门的用户信息</div>`};
+      const QuitUserInfo = {template: `<div>离职用户信息</div>`};
+      const EntryUserInfo = {template: `<div>某个部门的入职用户信息</div>`};
+
+      // 定义路由
+      const router = new VueRouter({
+        routes: [
+          // 简单路由
+          {
+            path: '/index',
+            component: Index
+          },
+          {
+            name: 'about',
+            path: '/about-us',
+            component: AboutUs
+          },
+          {
+            path: '/join-us',
+            component: JoinUs
+          },
+
+          // 动态路由匹配
+          {
+            path: '/user/:id',
+            components: {
+              userInfo: UserInfo
+            }
+          },
+          {
+            path: '/user/:deptId/:id',
+            components: {
+              userInfo: DeptUserInfo
+            }
+          },
+          {
+            path: '/user/:deptId/quit/:id',
+            components: {
+              userInfo: QuitUserInfo
+            }
+          },
+          {
+            name: 'searchEntryUserInfo',
+            path: '/user/:deptId/entry/:id',
+            components: {
+              userInfo: EntryUserInfo
+            }
+          }
+        ]
+      });
+
+      new Vue({
+        router: router,
+        methods: {
+          //
+        }
+      }).$mount('#demo');
+    </script>
+  </body>
+</html>

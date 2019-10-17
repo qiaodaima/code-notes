@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>背景图片</title>
+    <style>
+      * {margin: 0;padding: 0;list-style: none;font: inherit;}
+      body{padding-top: 50px; background-size: contain}
+
+      .test-wrap { margin: 20px auto; width: 500px; height: 200px;border: 1px solid #000;}
+      .test-wrap.one {background: url('./01.jpg') no-repeat left top / 100% 100%}
+      .test-wrap.two {background: url('./01.jpg') no-repeat left top / cover}
+      .test-wrap.three {background: url('./01.jpg') no-repeat left top / contain}
+    </style>
+  </head>
+  <body>
+    <div class="test-wrap one"></div>
+    <div class="test-wrap two"></div>
+    <div class="test-wrap three"></div>
+  </body>
+</html>

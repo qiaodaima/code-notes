@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  padding: 20px;
+  background: #f3f3f3;
+}
+ul {list-style: none;}
+
+
+.main-wrap {
+  margin: auto;
+  width: 1200px;
+}
+
+
+.tips {
+  line-height: 1.8;
+  color: red;
+  margin-bottom: 20px;
+}
+.demo-list-wrap {
+  min-height: 300px;
+  background: pink;
+  overflow: hidden;
+}
+.demo-list {
+  margin-left: -15px;
+  margin-top: -20px;
+}
+.demo-list:after{
+  display: block;
+  content: "";
+  height: 0;
+  clear: both;
+}
+.demo-list li{
+  float: left;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 120px;
+  height: 160px;
+  background: red;
+}

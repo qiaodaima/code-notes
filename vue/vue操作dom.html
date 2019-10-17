@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>vue操作dom</title>
+    <style>
+      span{
+        display: inline-block;
+        margin: 5px;padding:5px;
+        background: #f90;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <button @click="appendChild">添加元素</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+
+      var vm = new Vue({
+        el: '#demo',
+        methods: {
+          appendChild: function () {
+            var span = document.createElement('span');
+            span.innerHTML = '我是脚本创建的span';
+            vm.$el.appendChild(span);
+            console.log(vm.$el);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

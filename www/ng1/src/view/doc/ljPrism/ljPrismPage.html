@@ -1,0 +1,108 @@
+<!-- 文章内容 开始 -->
+<div class="frame-content-wrap">
+    <div class="tit-con-wrap">
+        <h1>
+            <span>ljPrism指令</span>
+        </h1>
+    </div>
+
+    <blockquote class="p-quote-item">
+        <p>
+            该指令一般不使用，大多数都是直接使用没封装的形式
+        </p>
+        <p>
+            由于<code>{ {}}</code>会被ng解析，所以在第一个花括号后面加一个空格来破坏，
+            这样<code>{ {}}</code>就可以直接当字面量来显示了
+        </p>
+    </blockquote>
+
+    <!-- 效果预览 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-eye"></i>
+                <span>效果预览</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <lj-prism language="{{model.language}}" source="{{model.source}}"></lj-prism>
+        </div>
+    </div>
+    <!-- 效果预览 结束 -->
+
+    <!-- 数据格式说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-database"></i>
+                <span>数据格式</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    $scope.model = {
+                        language: 'language-css',
+                        source: '.p-ico-arrow.next{background-position:0 -198px;}',
+                    };
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 数据格式说明 结束 -->
+
+    <!-- 使用方式 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-bullhorn"></i>
+                <span>使用方式</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    &lt;lj-prism language=&quot;{ {model.language}}&quot; source=&quot;{ {model.source}}&quot;&gt;&lt;/lj-prism&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 使用方式 结束 -->
+
+    <!-- 参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <lj-table theme="{{attrs.theme}}" headers="attrs.headers" rows="attrs.rows"></lj-table>
+        </div>
+    </div>
+    <!-- 参数说明 结束 -->
+
+    <!-- 没封装的使用方式 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-bullhorn"></i>
+                <span>没封装的使用方式</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    &lt;pre&gt;
+                        &lt;code class=&quot;{ {language} }&quot;&gt;
+                            { {source} }
+                        &lt;/code&gt;
+                    &lt;/pre&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 没封装的使用方式 结束 -->
+</div>
+<!-- 文章内容 结束 -->

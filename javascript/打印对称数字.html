@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <script>
+      let map = []; // map= [4][4] js会报错 哎 js自身天生就是残疾
+      let num = 4;
+
+      // 声明二维数组 真是操蛋
+      for(let row = 0; row < num * 2 - 1; row++) {
+        map.push([]);
+
+        for(let col = 0; col < num; col++) {
+          map[row].push('');
+        }
+      }
+
+      for(let row = 1; row <= num; row++) {
+        let currRow = num - row;
+
+        // 从中间开始对称打印 对称的两行 相加 == num * 2 - 2
+        for(let col = 1; col <= row; col++) {
+          map[currRow][col - 1] = row;
+          map[num * 2 - 2 - currRow][col - 1] = row;
+        }
+      }
+
+      console.log(map);
+    </script>
+  </body>
+</html>

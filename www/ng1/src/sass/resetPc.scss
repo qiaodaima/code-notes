@@ -1,0 +1,245 @@
+@charset "utf-8";
+/**
+* 参考：http://www.zhangxinxu.com/wordpress/?p=758
+* 参考：https://github.com/necolas/normalize.css
+* 参考：http://g.alicdn.com/msui/sm/0.6.2/css/sm.css
+* 参考：玉伯的那份css,貌似国 内大部分用的都是这份css
+* 参考：http://www.cnblogs.com/yizuierguo/archive/2009/07/15/1524106.html
+* 参考：https://ant.design/
+* 兼容性：IE8+（包括IE8）
+* Email:674059309@qq.com
+* www.qiaodaima.me
+*/
+
+
+
+/**********  盒子模型  开始**********/
+*,
+*:before,
+*:after{
+    -webkit-box-sizing:border-box;
+       -moz-box-sizing:border-box;
+            box-sizing:border-box;
+}
+/**********  盒子模型  结束**********/
+
+
+
+/**********  根元素标签  开始**********/
+html{
+    font:14px/1.5 "Microsoft YaHei",sans-serif;
+        -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%;
+}
+body{
+    position:relative;
+    margin:0;
+}
+/**********  根元素标签  结束**********/
+
+
+
+/**********  行内元素统一行块  开始**********/
+a,
+b,
+i,
+em,
+sub,
+sup,
+abbr,
+span,
+code,
+time,
+input,
+audio,
+small,
+video,
+button,
+canvas,
+strong,
+address,
+progress{
+    display:inline-block;
+    vertical-align:baseline;
+}
+/**********  行内元素统一行块  结束**********/
+
+
+
+/**********  html5标签  开始**********/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary{
+    display:block;
+}
+/**********  html5标签  结束**********/
+
+
+
+/**********  标题标签  开始**********/
+h1,h2,h3,h4,h5,h6,p{
+    margin:0;
+    font-weight:normal;
+}
+pre{
+    margin:0;
+}
+/**********  标题标签  结束**********/
+
+
+
+/**********  强调标签  开始**********/
+i,
+em,
+dfn,
+cite,
+address{
+    font-style:normal;
+}
+b,
+strong{
+    font-weight:bold;
+}
+small{
+    font-size:12px;
+}
+abbr[title]{
+    border-bottom:none;
+    text-decoration:none;
+    cursor:pointer;
+}
+/**********  强调标签  结束**********/
+
+
+
+/**********  上标、下标标签  开始**********/
+sub,
+sup{
+    position:relative;
+    line-height:1;
+    font-size:12px;
+}
+sup{
+    vertical-align:top;
+}
+sub{
+    vertical-align:bottom;
+}
+/**********  上标、下标标签  结束**********/
+
+
+
+/**********  表单标签  开始**********/
+input,
+button,
+select,
+option,
+textarea{
+    margin:0;padding:0;
+    vertical-align:middle;
+    outline:none;
+    color:inherit;
+    font:inherit;
+}
+/* 分割线 */
+button,
+select,
+input[type="file"],
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"],
+input[type="Date"],
+input[type="color"]{
+    cursor:pointer;
+}
+/* 分割线 */
+legend,
+fieldset,
+blockquote{
+    margin:0;padding:0;
+}
+/**********  表单标签  结束**********/
+
+
+
+/**********  列表标签  开始**********/
+dl,dd{
+    margin:0;
+}
+ol,ul{
+    margin:0;padding:0;
+    list-style:none;
+}
+/**********  列表标签  结束**********/
+
+
+
+/**********  表格标签  开始**********/
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
+th,td{
+    padding:0;
+    font-weight:normal;
+}
+/**********  表格标签  结束**********/
+
+
+
+/**********  链接、分割线、图片标签  开始**********/
+a{
+    text-decoration:none;
+    color:inherit;
+    outline:none;
+}
+hr{
+    margin:0;
+    border:none;
+    height:0;
+    overflow:visible;
+}
+img{
+    max-width:100%;
+    max-height:100%;
+    border:none;
+    vertical-align:top;
+}
+/**********  链接、分割线、图片标签  结束**********/
+
+
+
+/**********  用自定义样式  开始**********/
+html .hidden{display:none;}
+html .disabled{cursor:not-allowed !important;}
+/* 分割线 */
+.clearfix{
+    zoom:1;
+}
+.clearfix:after{
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+    font-size:0;
+    content:"";
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+/**********  用自定义样式  结束**********/

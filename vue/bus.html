@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>兄弟组件通讯</title>
+    <style>
+      *{margin: 0;padding: 0;}
+      body{padding: 50px 50px;}
+      .item{margin: 20px;padding:15px; line-height: 2; background: pink;}
+      pre{line-height: 2.6;color: red;font-size: 14px;}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <pre>
+        兄弟组件通讯的做法：
+        1. 在接收方的【mounted】阶段用【$on】监听事件
+        2. 发送方通过【$emit】对外发送事件以及数据
+      </pre>
+      {{name}}
+      <component-a></component-a>
+      <component-b></component-b>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      // 事件总线
+      var bus = new Vue();
+
+      // 组件 A
+      Vue.component('componentA', {
+        data: function () {
+          return {
+            message: '组件A',
+            busData: null
+          }
+        },
+        template: '<div class="item">{{message}} {{busData}}</div>',
+        mounted: function () {
+          bus.$on('custom-events-name', function (data) {
+            this.busData = data;
+            console.log(data);
+          }.bind(this));
+        }
+      });
+
+      // 组件 B
+      Vue.component('componentB', {
+        data: function () {
+          return {
+            name: '组件B'
+          }
+        },
+        template: '<div class="item">{{name}} <button @click="send">发送数据</button> </div>',
+        methods: {
+          send: function () {
+            bus.$emit('custom-events-name', {
+              '字段1': '测试数据1',
+              '字段2': '测试数据2'
+            });
+          }
+        }
+      });
+
+      new Vue({
+        el: '#demo'
+      });
+    </script>
+  </body>
+</html>

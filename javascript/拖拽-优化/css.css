@@ -1,0 +1,40 @@
+* {
+    margin: 0; padding: 0;
+}
+html {
+    font-size: 50px;
+}
+body {
+    position: relative;
+    height: 100vh;
+    background: #f4f6f6;
+    overflow: hidden;
+}
+
+.box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem; height: 1rem;
+    border-radius: .1rem;
+    transition: background .2s;
+    background: orangered;
+    user-select: none;
+}
+.box.fall {
+    top: 0;
+    left: 0;
+}
+.box span {
+    font-size: .2rem;
+    color: #fff;
+}
+
+#btnMove {
+    z-index: 999;
+    width: 1.2rem; height: 1.2rem;
+    left: 50%; top: 80%;
+    transform: translate(-50%, 0);
+    box-shadow: 0 0 5px 5px rgba(210, 207, 207, 0.4);
+}

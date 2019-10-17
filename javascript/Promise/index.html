@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+  </head>
+  <body>
+    <script src="./js.js"></script>
+    <script>
+      var doA = function (resolve, reject) {
+        setTimeout(() => {
+          console.log('doA is run ~');
+          // reject('成功了');
+          window.a.b.c;
+        }, 1500);
+      }
+
+      new Promise(doA).catch((error) => {
+        console.log(error,'---');
+      });
+    </script>
+  </body>
+</html>

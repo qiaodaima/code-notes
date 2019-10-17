@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>history</title>
+    </head>
+
+    <body>
+        <button id="btn1">查看history</button>
+        <button id="btn2">pushState</button>
+        <button id="btn3">前进</button>
+        <button id="btn4">后退</button>
+
+        <script>
+            const $btn1 = document.querySelector('#btn1');
+            const $btn2 = document.querySelector('#btn2');
+            const $btn3 = document.querySelector('#btn3');
+            const $btn4 = document.querySelector('#btn4');
+
+            $btn1.onclick = () => {
+                console.log('history:', history);
+            }
+
+            $btn2.onclick = () => {
+                const state = {
+                    age: 1,
+                    color: 'yellow',
+                    address: '福建省 福州市 鼓楼区'
+                };
+
+                history.pushState(state, 'new page title', '2.html');
+            }
+
+            $btn3.onclick = () => {
+                history.go(1);
+            }
+            $btn4.onclick = () => {
+                history.back()
+            }
+
+            window.onpopstate = (event) => {
+                // console.log('event:', event);
+                console.log('event:', JSON.stringify(event.state));
+            }
+        </script>
+    </body>
+</html>

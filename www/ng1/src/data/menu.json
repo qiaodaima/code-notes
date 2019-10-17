@@ -1,0 +1,129 @@
+{
+    "menu":[
+        {
+            "text": "陆续更新",
+            "iconLeft": "fa-spinner fa-spin"
+        },
+        {
+            "text": "维护文档",
+            "children":[
+                {
+                    "text": "ljPrism",
+                    "hrefUrl": "ljPrism"
+                },
+                {
+                    "text": "ljTable",
+                    "hrefUrl": "ljTable"
+                }
+            ]
+        },
+        {
+            "text": "随笔短文",
+            "children":[
+                {
+                    "text": "致那些岁月",
+                    "iconLeft": "fa-edit",
+                    "hrefUrl": "message"
+                }
+            ]
+        },
+        {
+            "text": "javascript",
+            "children":[
+                {
+                    "text": "常用代码段",
+                    "hrefUrl": "jsCodeSegment"
+                },
+                {
+                    "text": "分页",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "正则表达式",
+                    "hrefUrl": "empty"
+                }
+            ]
+        },
+        {
+            "text": "angularjs",
+            "children":[
+                {
+                    "text": "基础代码段",
+                    "hrefUrl": "empty"
+                }
+            ]
+        },
+        {
+            "text": "jquery",
+            "children":[
+                {
+                    "text": "如何封装JQ插件",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "tab选项卡",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "发送验证码倒计时",
+                    "hrefUrl": "empty"
+                }
+            ]
+        },
+        {
+            "text": "自动化构建工具",
+            "children":[
+                {
+                    "text": "gulp",
+                    "hrefUrl": "gulp"
+                }
+            ]
+        },
+        {
+            "text": "css",
+            "children":[
+                {
+                    "text": "PC端重置样式表",
+                    "hrefUrl": "reset-pc"
+                },
+                {
+                    "text": "移动端重置样式表",
+                    "hrefUrl": "reset-mobile"
+                },
+                {
+                    "text": "css3动画属性",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "3D旋转盒子",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "flex弹性布局",
+                    "hrefUrl": "flex"
+                },
+                {
+                    "text": "常用居中方式",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "推拉门",
+                    "hrefUrl": "empty"
+                },
+                {
+                    "text": "css画三角形",
+                    "hrefUrl": "empty"
+                }
+            ]
+        },
+        {
+            "text": "photoshop",
+            "children":[
+                {
+                    "text": "常用基本切图",
+                    "hrefUrl": "empty"
+                }
+            ]
+        }
+    ]
+}

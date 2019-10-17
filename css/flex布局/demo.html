@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="google" value="notranslate">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>flex弹性布局示例</title>
+    <link href="./flex.css" rel="stylesheet">
+  </head>
+    <body>
+      <div class="demo-box">
+        <p>全部等分(width:0;必须写，不然内容不一样多时，元素不等分)</p>
+        <div class="flex-box one">
+          <div class="item">flex-grow:1;</div>
+          <div class="item">flex-grow:1;</div>
+          <div class="item">flex-grow:1;</div>
+          <div class="item">flex-grow:1;</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>1+2+3 = 6</p>
+        <p>flex-grow:3;表示占据3/6</p>
+        <div class="flex-box one">
+          <div class="item" style="flex-grow:1;">flex-grow:1;</div>
+          <div class="item" style="flex-grow:2;">flex-grow:2;</div>
+          <div class="item" style="flex-grow:3;">flex-grow:3;</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>某个元素固定宽度，然后剩下的等分</p>
+        <p>固定宽度的元素，flex-grow属性要为0</p>
+        <div class="flex-box one">
+          <div class="item" style="width:120px;flex-grow:0;">width:120px;</div>
+          <div class="item">flex-grow:1;</div>
+          <div class="item">flex-grow:1;</div>
+          <div class="item">flex-grow:1;</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>水平居中(justify-content:center;)</p>
+        <div class="flex-box two">
+          <div class="item">水平居中</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>垂直居中(align-items:center;)</p>
+        <div class="flex-box three">
+          <div class="item">垂直居中</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>水平垂直居中(justify-content:center;align-items:center;)</p>
+        <div class="flex-box two three">
+          <div class="item">水平垂直居中</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>两端分散对齐（justify-content:space-between;）</p>
+        <div class="flex-box four">
+          <div class="item">紧贴最左边</div>
+          <div class="item">水平居中</div>
+          <div class="item">水平居中</div>
+          <div class="item">紧贴最右边</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>等分列表</p>
+        <div class="flex-box five">
+          <div class="item">1</div>
+          <div class="item">2</div>
+          <div class="item">3</div>
+          <div class="item">4</div>
+          <div class="item">5</div>
+          <div class="item">6</div>
+          <div class="item">7</div>
+          <div class="item">8</div>
+          <div class="item">9</div>
+          <div class="item">10</div>
+          <div class="item">11</div>
+          <div class="item">12</div>
+        </div>
+      </div>
+
+      <div class="demo-box">
+        <p>垂直等分</p>
+        <div class="flex-box six">
+          <div class="item">1</div>
+          <div class="item" style="flex: 1;">2</div>
+          <div class="item">3</div>
+        </div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>组件通讯</title>
+    <style>
+      fieldset,
+      input{border:1px solid #ddd;}
+      fieldset{margin: 25px;}
+      input{height:35px;padding:0 10px;}
+      em{color: red;font-style: normal;}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <fieldset >
+        <legend>外部 vue</legend>
+        <p>
+          <em>
+            这个 demo 写了好久，数据一致发送不出来， 后来才发现是我事件名称写错了，不能用驼峰写法
+            <b>callback</b> 不能写成 <b>callBack</b>
+          </em>
+        </p>
+        <p>
+          组件会同步改变：<input v-model="outMseeage" type="text">
+        </p>
+        <p>
+          组件发送的数据为： {{outMsg}}
+        </p>
+        <fieldset>
+          <legend>我是一个组件</legend>
+          <li-jun :sync-father="outMseeage" :prop1="'直接传递给属性的数据'" v-on:callback="receive"></li-jun>
+        </fieldset>
+
+      </fieldset>
+    </div>
+
+    <script type="text/x-template" id="template">
+      <div>
+        <p>内部：{{innerMessage}}</p>
+        <p>同步爹的数据：{{syncFather}}</p>
+        <p>直接传递给组件：{{prop1}}</p>
+        <p>这边可以修改要对外发送的数据 <em>(修改后要点击下面的发送按钮)</em>：<input type="text" v-model="innerMessage"></p>
+        <p>往外发送数据： <button @click="send">点击我呀</p>
+      </div>
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      Vue.component('li-jun', {
+        props: ['syncFather', 'prop1'],
+        template:  '#template',
+        data: function () {
+          return {
+            innerMessage: '我是子组件的数据'
+          }
+        },
+        methods: {
+          send: function () {
+            var _this = this;
+
+            _this.$emit('callback', _this.innerMessage);
+          }
+        }
+      });
+
+      var app = new Vue({
+        el: '#demo',
+        data: {
+           outMseeage: '我是外部的数据',
+           outMsg: '还没接收到...'
+        },
+        methods: {
+          receive: function (result){
+            var _this = this;
+
+            _this.outMsg = result;
+            console.log(result);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
