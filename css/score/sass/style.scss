@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    text-align: center;
+    padding: 50px;
+}
+.rate-item {
+    margin: 0 auto;
+}
+
+
+.rate-item {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    input[type="radio"] {
+        $size: 40px;
+
+        box-sizing: content-box;
+        appearance: none;
+        width: $size; height: $size;
+        outline: none;
+        background: url("../images/star.png") no-repeat left center / $size $size;
+        cursor: pointer;
+
+        & + input[type="radio"] {
+            padding-right: 15px;
+        }
+
+        @mixin active {
+            background-image: url("../images/star-active.png");
+
+            & ~ input[type="radio"] {
+                background-image: url("../images/star-active.png");
+            }
+        }
+
+        &:hover,
+        &:checked {
+            @include active;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js动画</title>
+    <style>
+      * {margin: 0;padding: 0;}
+      body {padding: 20px; background: #f3f3f3;}
+
+      .progress-bar {
+        height: 26px;
+        line-height: 26px;
+        text-indent: 20px;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 26px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div  id="progressBar" class="progress-bar">加载中...</div>
+    <script>
+      const loadProgress = (start = 0 , end = 100, speed = 1) => {
+        const $progressBar = document.querySelectorAll('#progressBar')[0];
+        const step = () => {
+          Math.ceil(start += speed) <= end ? requestAnimationFrame(step) : cancelAnimationFrame(id);
+          $progressBar.style.width = `${Math.min(start, end)}%`; // 避免取不到边界值
+        };
+        const id = requestAnimationFrame(step);
+      };
+
+      loadProgress(0, 100, 0.3);
+    </script>
+  </body>
+</html>

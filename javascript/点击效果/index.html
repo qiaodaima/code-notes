@@ -14,6 +14,11 @@
     <script src="./tool.js"></script>
     <script>
       document.addEventListener('click', function (e) {
+        var textStr = [
+          '富强', '民主', '文明', '和谐',
+          '自由', '平等', '公正', '法治',
+          '爱国', '敬业', '诚信', '友善'
+        ];
         var body = document.getElementsByTagName('body')[0];
         var span = createElement('span');
         var spanAttribute = {
@@ -25,17 +30,31 @@
             fontSize: '12px',
             color: '#f90'
           },
-          textContent: '我很帅'
+          textContent: textStr[parseInt(Math.random() * textStr.length)]
         };
+        var timer = null;
 
         setElementAttribute(span, spanAttribute);
         body.appendChild(span);
 
-        var testStyles = {
-          left: '500px',
-          top: '0px'
-        };
-        animate(span, testStyles, 10000);
+        timer = setInterval(function () {
+          var opacity = getComputedStyle(span, null)['opacity'] - 0.01;
+          var top = parseInt(getComputedStyle(span, null)['top']) - 2;
+
+          if(opacity <= 0) {
+            delSelfElement(span);
+            clearInterval(timer);
+          }
+
+          span.style.opacity = opacity;
+          span.style.top = top + 'px';
+        }, 16.7);
+
+        // var testStyles = {
+        //   left: '500px',
+        //   top: '0px'
+        // };
+        // animate(span, testStyles, 10000);
       });
     </script>
   </body>

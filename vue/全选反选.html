@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>全选反选</title>
+    <style>
+      *{margin: 0;padding: 0;list-style:none;text-decoration: none;}
+      body{padding:30px 150px;}
+      fieldset{margin-bottom: 40px;padding: 25px;width:700px;border:1px solid #ddd;}
+      legend{padding: 0 10px;}
+
+      .list-wrap dt{margin-bottom:10px}
+      .item{position:relative;display:inline-block;margin-right:15px;cursor:pointer;}
+      .item input{position:absolute;left:0;top:0;width:100%;height:100%;z-index:10;opacity:0;cursor:pointer;}
+      .item span{padding:2px 8px;border:1px solid #ddd;border-radius:4px;font-size:12px;transition:all 0.2s;}
+      .item input:checked + span{color:#fff;border-color:#40d0a7;background:#40d0a7;}
+      .item.selected span{color:#fff;border-color:#40d0a7;background:#40d0a7;}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <fieldset>
+        <legend>计算属性实现</legend>
+
+        <dl class="list-wrap">
+          <dt> 被选择的：{{membersSelected}}</dt>
+          <dd
+            v-for="(member, index) in members"
+            :class="{selected: member.isSelect}"
+            @click="member.isSelect = !member.isSelect"
+            class="item">
+            <span>{{member.name}}</span>
+          </dd>
+        </dl>
+      </fieldset>
+
+      <fieldset>
+        <legend>checkbox实现</legend>
+
+        <dl class="list-wrap">
+          <dt> 被选择的：{{hobbys.selected}}</dt>
+          <dd v-for="(item, index) in hobbys.items" class="item">
+              <input v-model="hobbys.selected" type="checkbox" :value="item">
+              <span>{{item.text}}</span>
+          </dd>
+        </dl>
+      </fieldset>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      new Vue({
+        el: '#demo',
+        data:{
+          members: [
+            {
+              name: '白居易',
+              isSelect: false
+            },
+            {
+              name: '李清照',
+              isSelect: false
+            },
+            {
+              name: '冯梦龙',
+              isSelect: false
+            },
+            {
+              name: '苏东坡',
+              isSelect: false
+            }
+          ],
+          hobbys: {
+            selected: [],
+            items: [
+              {
+                text: '下象棋',
+              },
+              {
+                text: '游泳',
+              },
+              {
+                text: '唱歌',
+              },
+              {
+                text: '跳舞',
+              }
+            ]
+          }
+        },
+        computed:{
+          membersSelected: function() {
+            const _this = this;
+            let result = [];
+
+            _this.members.forEach(function (item, index) {
+              item.isSelect ? result.push(item.name) : '';
+            });
+
+            return result;
+          }
+        },
+        methods:{}
+      });
+    </script>
+  </body>
+</html>

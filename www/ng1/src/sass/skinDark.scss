@@ -1,0 +1,69 @@
+@charset "utf-8";
+/**
+* class名称命名规则，一律使用小写和中划线
+* 复用样式遵循【.p-xxxx】规则，p代表public
+* fontawesome 字体图标预览地址：http://fontawesome.dashgame.com
+* Email:674059309@qq.com
+* www.qiaodaima.me
+*/
+
+body{
+    color:#fff;
+    font-family: 'KaiTi';
+    background: url("../images/base/math.jpg") repeat 0 0;
+}
+
+// 代码高亮插件
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background:none;
+}
+
+// 菜单列表
+.p-menu-list{
+    & > li{
+        border:none;
+        background:none;
+
+        & > .meun-item{
+            background:none;
+            // background-image:linear-gradient(to bottom,#fff 0,#eee 100%);
+        }
+    }
+}
+
+// 引用块
+.p-quote-item{
+    border:none;
+    background:none;
+}
+
+// 参数说明表格
+.p-tab-config{
+    border-collapse:collapse;
+    border-spacing:0;
+    box-shadow:none;
+    background:none;
+
+    th,
+    td{
+        background:none;
+        border:1px solid rgba(255,255,255,0.1);
+    }
+
+    th{
+        background:none;
+    }
+}
+
+// 文章内容详情页
+.frame-wrap{
+    .frame-menu-wrap,
+    .frame-content-wrap{
+        border:none;
+        box-shadow:none;
+        background:rgba(0,0,0,0.5);
+    }
+}
+
+

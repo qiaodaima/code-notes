@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等分技巧</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <p class="main-wrap tips">
+      主宽度：1200px；
+      等分9列， 每列宽度120px; 列间距为15px;
+      120*9 + 15*8 == 1200px;
+
+      <br>
+
+      像这种等分布局，有一个特性，即每个元素大小相等，且两边紧贴边缘部分，没有间隙；
+      <br>
+      思路是给每个元素写【上边距】和【左边距】，由于第一列元素也会有左边距，因此会造成一列排不下9个（空间不够），第9个会掉下来，
+      <br>
+      解决方式是他们的直接上级整体往【左】【上】偏移，然后他的上级元素用【overflow: hidden】来隐藏超出部分，这样就做到了等分的效果
+
+      <br> <br>
+
+      注意：A元素包裹B，B元素写【margin-top】属性时，此时B元素并不会和A元素产生距离（自己仔细去研究这里面的每个样式 打钩打岔去掉看不变化），
+      实际效果是A元素和外面的元素产生距离。也就是说 儿子无法对爹使用margin-top属性，这种叫垂直间距作用，布局的时候要注意，
+
+      <br><br>
+      假如以后儿子和爹需要产生间距，应该对爹使用padding属性, padding 和 margin都可以用来产生间距，但是应该合理使用，
+      虽然有时候将某个元素的margin属性写成padding 也会同样的效果（但是内在的逻辑行为不一样），这不应该成为混用padding、margin的理由，应该结合实际逻辑去使用
+    </p>
+
+    <div class="main-wrap demo-list-wrap">
+      <ul class="demo-list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </body>
+</html>

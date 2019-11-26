@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      * {margin: 0;padding: 0;}
+      body {padding: 20px;background: #f3f3f3;}
+
+      button {padding: 5px 15px;border: none; background: #f90;color: #fff;outline: none;cursor: pointer;font-size: 16px;}
+      .pop-item .mask{z-index: 900; position: fixed;left: 0;right: 0;top: 0;bottom: 0;background: rgba(0, 0, 0, .3)}
+      .pop-item .content-wrap{z-index: 910; position: fixed;transform: translate(-50%, -50%); left: 50%; top: 50%; width: 600px; height: 450px;background: #fff;}
+
+      .pop-item-enter-active {animation: bounce-in .5s;}
+      .pop-item-leave-active {animation: bounce-in .5s reverse;}
+
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <button @click="switchDialog">显示弹窗~</button>
+
+      <transition name="pop-item">
+        <div v-if="dialog.show" class="pop-item">
+          <div class="mask"></div>
+          <div class="content-wrap">
+            <button @click="switchDialog">关闭弹窗~</button>
+          </div>
+        </div>
+      </transition>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#demo',
+        data: {
+          dialog: {
+            show: 0
+          }
+        },
+        methods: {
+          switchDialog() {
+            this.dialog.show = !!!this.dialog.show;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

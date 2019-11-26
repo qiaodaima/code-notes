@@ -1,0 +1,158 @@
+@charset "utf-8";
+/*!
+* 参考：http://www.zhangxinxu.com/wordpress/?p=758
+* 参考：http://g.alicdn.com/msui/sm/0.6.2/css/sm.css
+* 参考：https://github.com/necolas/normalize.css/blob/master/normalize.css
+* 参考：https://ant.design/
+* 由于设计稿的尺寸在重构的时候要除以2，
+* 因此这个样式表用50px为基准（刚好凑成除以100，方便计算）
+* 1rem == 50 px;
+* Email:qiaodaima@qq.com
+* https://github.com/qiaodaima
+*/
+
+// 盒子模型
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+  }
+}
+
+// 根元素
+html {
+  font:50px/1.5 sans-serif;
+}
+body {
+  position:relative;
+  margin:0;
+  font-size:0.28rem;
+}
+
+// 行内元素统一行块
+a,
+b,
+i,
+em,
+sub,
+sup,
+abbr,
+span,
+code,
+time,
+label,
+input,
+audio,
+small,
+video,
+button,
+select,
+canvas,
+strong,
+address,
+textarea,
+progress {
+  display:inline-block;
+}
+
+// 标题
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin:0;
+  font-weight:normal;
+}
+pre {
+  margin:0;
+}
+
+// 强调
+i,
+em,
+dfn,
+cite,
+address {
+  font-style:normal;
+}
+b,
+strong {
+  font-weight:inherit;
+}
+small {
+  font-size:inherit;
+}
+abbr[title] {
+  border-bottom:none;
+  text-decoration:none;
+}
+
+// 上标、下标
+sub,
+sup {
+  line-height:1;
+  font-size:12px;
+}
+
+// 表单
+input,
+button,
+select,
+option,
+textarea {
+  appearance:none;
+  margin:0;padding:0;
+  vertical-align:middle;
+  outline:none;
+  color:inherit;
+  font:inherit;
+}
+/* 分割线 */
+legend,
+fieldset,
+blockquote {
+  margin:0;padding:0;
+}
+
+// 列表
+dl,
+dd {
+  margin:0;
+}
+ol,
+ul {
+  margin:0;padding:0;
+  list-style:none;
+}
+
+// 表格
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+th,
+td {
+  padding:0;
+  font-weight:normal;
+}
+
+// 链接、分割线、图片
+a {
+  text-decoration:none;
+  color:inherit;
+  outline:none;
+}
+img {
+  max-width:100%;
+  max-height:100%;
+  border:none;
+  vertical-align:top;
+}
+hr {
+  margin:0;
+}

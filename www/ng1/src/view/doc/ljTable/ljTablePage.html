@@ -1,0 +1,81 @@
+<!-- 文章内容 开始 -->
+<div class="frame-content-wrap">
+    <div class="tit-con-wrap">
+        <h1>
+            <span>ljTable指令</span>
+        </h1>
+    </div>
+
+    <!-- 效果预览 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-eye"></i>
+                <span>效果预览</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <lj-table theme="{{model.theme}}" headers="model.headers" rows="model.rows"></lj-table>
+        </div>
+    </div>
+    <!-- 效果预览 结束 -->
+
+    <!-- 数据格式说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-database"></i>
+                <span>数据格式</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    $scope.model = {
+                        theme : 'p-tab-config',
+                        headers: ['姓名','性别','电话号码','居住地址'],
+                        rows: [
+                            ['刘亦菲',  '女', '123456789', '北京市朝阳区'],
+                            ['刘诗诗','女', '5465454', '江西省南昌市'],
+                            ['许嵩',   '男', '515156', '福建省厦门市']
+                        ]
+                    };
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 数据格式说明 结束 -->
+
+    <!-- 使用方式 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-bullhorn"></i>
+                <span>使用方式</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    &lt;lj-table theme=&quot;{ {model.theme}}&quot; headers=&quot;model.headers&quot; rows=&quot;model.rows&quot;&gt;&lt;/lj-table&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 使用方式 结束 -->
+
+    <!-- 参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <lj-table theme="{{attrs.theme}}" headers="attrs.headers" rows="attrs.rows"></lj-table>
+        </div>
+    </div>
+    <!-- 参数说明 结束 -->
+</div>
+<!-- 文章内容 结束 -->

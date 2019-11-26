@@ -1,0 +1,120 @@
+*{margin: 0;padding: 0;}
+a{text-decoration: none;}
+body{padding: 50px 100px 0;background: #f3f3f3;}
+
+// 提示语
+.tips{
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: #409eff;
+  font-size: 18px;
+  font-weight: bold;
+  user-select: none;
+}
+
+// 演示元素
+.demo-wrap{
+  position: relative;
+  padding: 28px;
+  height: 600px;
+  border: 1px solid #e1e1e1;
+
+  .item-1{
+    position: absolute;
+    left: 20px; top: 20px;
+    width: 80px;height: 80px;
+    background-image: linear-gradient(351deg, #2eead3 0%, #1b9422 100%);
+
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+}
+
+// 缩放
+.control{
+  $radius: 10px;
+
+  position: absolute;
+  border: 1px dashed #000;
+  cursor: move;
+
+  .point{
+    position: absolute;
+    display: inline-block;
+    width: $radius; height: $radius;
+    border-radius: 50%;
+    text-indent: -99999px;
+    background: #409eff;
+
+    &.top-left,
+    &.top-center,
+    &.top-right{
+      top: -$radius / 2;
+    }
+
+    &.top-left{
+      left: -$radius / 2;
+      cursor: nw-resize;
+    }
+    &.top-center{
+      left: 50%;
+      margin-left: -$radius / 2;
+      cursor: n-resize;
+    }
+    &.top-right{
+      right: -$radius / 2;
+      cursor: ne-resize;
+    }
+
+    &.center-left,
+    &.center-right{
+      top: 50%;
+      margin-top: -$radius / 2;
+    }
+
+    &.center-left{
+      left: -$radius / 2;
+      cursor: w-resize;
+    }
+    &.center-right{
+      right: -$radius / 2;
+      cursor: e-resize;
+    }
+
+    &.bottom-left,
+    &.bottom-center,
+    &.bottom-right{
+      bottom: -$radius / 2;
+    }
+
+    &.bottom-left{
+      left: -$radius / 2;
+      cursor: sw-resize;
+    }
+    &.bottom-center{
+      left: 50%;
+      margin-left: -$radius / 2;
+      cursor: s-resize;
+    }
+    &.bottom-right{
+      right: -$radius / 2;
+      cursor: se-resize;
+    }
+  }
+}
+
+// 选区
+.selection{
+  position: absolute;
+  border: 1px solid #409eff;
+  text-indent: -9999px;
+  background: rgba(64, 160, 255, 0.15);
+}
+
+/*
+ * 数据结构 配合 C++ 刷ACM
+ * JavaScript高级程序设计
+ * html + div + css
+ * photoshop
+*/

@@ -1,0 +1,26 @@
+{
+  "name": "web-house",
+  "version": "1.0.0",
+  "description": "一、何如运行本项目（需要安装nodejs和gulp）：\r     1.在项目根目录执行 【npm install】,仅第一次需要，以后再次运行不需要执行该命令\r     2.在项目根目录执行 【gulp default】",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "小小俊",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.11",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^2.1.2",
+    "jshint": "^2.9.4"
+  }
+}

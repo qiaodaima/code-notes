@@ -1,0 +1,37 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    touch-action: pan-y;
+}
+html {
+    font-size: 50px;
+}
+.pageContent {
+    background: #e3e3e3;
+}
+.page {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: purple;
+    transition: opacity 1s ease-in;
+}
+.page.templateAppear,
+.page.templateAppearActive {
+    opacity: 0;
+}
+.content {
+    text-align: center;
+    color: #fff;
+    user-select: none;
+}
+.content p {
+    font-size: .5rem;
+}
+.content small {
+    display: block;
+    margin-top: .2rem;
+    font-size: .26rem;
+}

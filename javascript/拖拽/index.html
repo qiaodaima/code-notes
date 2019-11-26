@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    0
+    <!-- <div class="tips">
+      <p>请尝试 在页面可视区域任意位置 按下鼠标左键并移动鼠标</p>
+      <p>请尝试 对页面上的元素进行双击</p>
+    </div> -->
+
+    <!-- <div class="demo-wrap">
+      <div id="box" class="item-1"></div>
+    </div> -->
+
+    <!-- 缩放模板 开始 -->
+    <template id="controlTemplate">
+      <div class="control">
+        <a class="point top-left" href="javascript:;">上左</a>
+        <a class="point top-center" href="javascript:;">上中</a>
+        <a class="point top-right" href="javascript:;">上右</a>
+        <a class="point center-left" href="javascript:;">中左</a>
+        <a class="point center-right" href="javascript:;">中右</a>
+        <a class="point bottom-left" href="javascript:;">下左</a>
+        <a class="point bottom-center" href="javascript:;">下中</a>
+        <a class="point bottom-right" href="javascript:;">下右</a>
+      </div>
+    </template>
+    <!-- 缩放模板 结束 -->
+
+    <!-- 选区模板 开始 -->
+    <!-- <template id="selectionTemplate">
+      <div class="selection">选区</div>
+    </template> -->
+    <!-- 选区模板 结束 -->
+    <script>
+      const $controlTemplate = document.getElementById('controlTemplate').content.cloneNode(true);
+      const body = document.getElementsByTagName('body')[0];
+      let startPosition = {};
+      let endPosition = {};
+      let isMove = false;
+
+      document.onmousedown = function(event) {
+        $controlTemplate.querySelectorAll("div")[0].style.left = event.clientX + 'px';
+        $controlTemplate.querySelectorAll("div")[0].style.top  = event.clientY  + 'px';
+
+        $controlTemplate.querySelectorAll("div")[0].style.width = '120px';
+        $controlTemplate.querySelectorAll("div")[0].style.height = '120px';
+
+        body.appendChild($controlTemplate);
+        isMove = true;
+      };
+
+      document.onmousemove = function(event) {
+        if(!isMove)
+          return;
+
+        console.log(99);
+      };
+
+      document.onmouseup = function(event) {
+        isMove = false;
+      };
+
+      // let isMove = false;
+      // let x;
+      // let y;
+      // const box =  document.getElementById('box');
+
+      // box.onmousedown = function(event) {
+      //   isMove = true;
+      //   x = event.clientX - box.offsetLeft;
+      //   y = event.clientY - box.offsetTop;
+      // };
+
+      // document.onmousemove = function(event) {
+      //   if(!isMove)
+      //     return;
+      //   box.style.left = event.clientX - x + 'px';
+      //   box.style.top  = event.clientY - y + 'px';
+      // };
+
+      // document.onmouseup = function(event) {
+      //   isMove = false;
+      // };
+    </script>
+  </body>
+</html>

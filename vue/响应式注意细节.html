@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>响应式注意细节</title>
+    <style>
+      *{margin: 0;padding: 0; font-size: 12px;}
+      body{padding:30px 150px 450px;}
+      fieldset{margin-bottom: 40px;padding: 25px;width: 800px; border:1px solid #ddd;}
+      legend{padding: 0 10px;}
+      button{display: inline-block;padding: 2px 10px;}
+      .vip button{display: block;margin: 10px 0;width: 800px;}
+      p{margin-bottom: 10px; line-height: 2; color: red;}
+    </style>
+  </head>
+  <body>
+    <div id="demo">
+      <fieldset>
+        <legend>直接声明在data字段的变量是响应式的</legend>
+        <button @click="countInc">自增 count: {{count}}</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>点击这个按钮，视图不会更新，但之后再点别的按钮会更新视图</legend>
+        <p>
+          点击这个按钮视图不会被更新，是因为给对象直接动态添加属性后，该属性是非响应式的，<br />
+          但之后点击别的按钮该视图会被更新的原因是,其他按钮的数据是响应式的，<br />
+          触发响应式后，界面的dom会被重新替换成新的，因此是这个过程带动了这个视图的变化
+        </p>
+        <button @click="schoolAddAttr">school.name: {{school.name}}</button>
+      </fieldset>
+
+        <fieldset>
+          <legend>set方法给对象动态添加属性，可确保被添加的属性是响应式</legend>
+          <button @click="schoolAddAttrByset">school.address: {{school.address}}</button>
+        </fieldset>
+
+        <fieldset class="vip">
+          <legend>对象测试</legend>
+          <p>
+            【点击第4个按钮后，再点击其他按钮4个按钮，视图不会更新，具体原因目前不知】<br />
+            5个按钮，分别体现出下面一些特征：<br />
+            1.已经声明好的字段（在data字段中声明过） 赋值为对象，该属性也是响应式的 <br />
+            2.给一个二级属性动态添加属性后，改属性不会是响应式的，就算之后再去用set方法也不会是响应式的 【点击第2个按钮后再去点击按钮3不会触发视图更新】<br />
+            3.给二级属性动态添加属性 要使用set方法才会是响应式的 <br />
+            4.将已经声明好的字段（在data字段中声明过）直接清空后，再给该对象复制，该属性还是响应式的 <br />
+            5.使用set方法给对象动态添属性（属性值也是对象），被添加的属性也是响应式的 <br />
+          </p>
+          <button @click="test(1)">直接改变一个对象的指向 → {{teacher}}</button>
+          <button @click="test(2)">给二级对象动态添加属性 → {{teacher}}</button>
+          <button @click="test(3)">给二级对象动态添加属性 → {{teacher}}</button>
+          <button @click="test(4)">清空个对象后再添加属性 → {{teacher}}</button>
+          <button @click="test(5)">使用set给对象动态添加属性，并且该属性值还是对象 → {{teacher}}</button>
+        </fieldset>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      new Vue({
+        el: '#demo',
+        data: {
+          count: 0,
+          school: {},
+          teacher:{
+            address: {}
+          }
+        },
+        methods: {
+          countInc() {
+            this.count++;
+            console.log('count:' + this.count);
+          },
+          schoolAddAttr() {
+            this.school.name = '学校的名称' + Math.random();
+            console.log('school.name' + this.school.name);
+          },
+          schoolAddAttrByset() {
+            this.$set(this.school, 'address', '学校的地址' + Math.random());
+            console.log('school.address' + this.school.address);
+          },
+          test(type) {
+            switch (type) {
+              case 1:
+                this.teacher.address = {
+                  province: '江苏省'
+                };
+                console.log(this.teacher);
+                break;
+              case 2:
+                this.teacher.address.road = '华林路54号';
+                console.log(this.teacher);
+                break;
+              case 3:
+                this.$set(this.teacher.address, 'road', '华林路54号');
+                console.log(this.teacher);
+                break;
+              case 4:
+                this.teacher = {};
+                this.teacher.address = {
+                  city: '福州市',
+                };
+                console.log(this.teacher);
+                break;
+              case 5:
+                this.$set(this.teacher.address, 'test', {
+                  attr1: 'value1',
+                  attr2: 'value2'
+                });
+                console.log(this.teacher);
+                break;
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

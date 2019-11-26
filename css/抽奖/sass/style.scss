@@ -1,0 +1,55 @@
+@import './_resetMobile.scss';
+
+$width: 2.34rem;
+$height: 2.84rem;
+$space: .2rem;
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+.btn-start {
+  // position: absolute;
+  left: 50%; right: 50%;
+  padding: .12rem .28rem;
+  color: #fff;
+  border: 1px solid #ee6a71;
+  background-color: #ee6a71;
+  border-radius: 2px;
+  transition: all .2s;
+  white-space: nowrap;
+  user-select: none;
+  // transform: translate(-50%, -50%);
+
+  &:active {
+    opacity: .5;
+  }
+}
+.card-item {
+  width: 2.3rem;
+  height: 2.4rem;
+  background: url('../images/brand-close.png') no-repeat center / cover;
+  // backface-visibility:hidden;
+  animation: myfirst 3s ease 3s 1 normal both;
+}
+.mask {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+}
+
+
+@keyframes myfirst
+{
+  0% {
+    transform: scale(1) rotateY(0deg);
+  }
+  100% {
+    transform: scale(1) rotateY(180deg);
+  }
+}

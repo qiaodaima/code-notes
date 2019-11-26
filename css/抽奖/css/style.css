@@ -1,0 +1,220 @@
+@charset "UTF-8";
+/*!
+* 参考：http://www.zhangxinxu.com/wordpress/?p=758
+* 参考：http://g.alicdn.com/msui/sm/0.6.2/css/sm.css
+* 参考：https://github.com/necolas/normalize.css/blob/master/normalize.css
+* 参考：https://ant.design/
+* 由于设计稿的尺寸在重构的时候要除以2，
+* 因此这个样式表用50px为基准（刚好凑成除以100，方便计算）
+* 1rem == 50 px;
+* Email:qiaodaima@qq.com
+* https://github.com/qiaodaima
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000316}}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000325}}
+html {
+  font: 50px/1.5 sans-serif; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000328}}
+body {
+  position: relative;
+  margin: 0;
+  font-size: 0.28rem; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000335}}
+a,
+b,
+i,
+em,
+sub,
+sup,
+abbr,
+span,
+code,
+time,
+label,
+input,
+audio,
+small,
+video,
+button,
+select,
+canvas,
+strong,
+address,
+textarea,
+progress {
+  display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000361}}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: normal; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000371}}
+pre {
+  margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000376}}
+i,
+em,
+dfn,
+cite,
+address {
+  font-style: normal; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000383}}
+b,
+strong {
+  font-weight: inherit; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000387}}
+small {
+  font-size: inherit; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000390}}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\0000396}}
+sub,
+sup {
+  line-height: 1;
+  font-size: 12px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003103}}
+input,
+button,
+select,
+option,
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  outline: none;
+  color: inherit;
+  font: inherit; }
+
+/* 分割线 */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003116}}
+legend,
+fieldset,
+blockquote {
+  margin: 0;
+  padding: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003123}}
+dl,
+dd {
+  margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003127}}
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003134}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003138}}
+th,
+td {
+  padding: 0;
+  font-weight: normal; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003145}}
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003150}}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border: none;
+  vertical-align: top; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/_resetMobile\.scss}line{font-family:\00003156}}
+hr {
+  margin: 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/style\.scss}line{font-family:\000037}}
+body {
+  position: relative;
+  height: 100vh; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/style\.scss}line{font-family:\0000312}}
+.btn-start {
+  left: 50%;
+  right: 50%;
+  padding: .12rem .28rem;
+  color: #fff;
+  border: 1px solid #ee6a71;
+  background-color: #ee6a71;
+  border-radius: 2px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/style\.scss}line{font-family:\0000325}}
+  .btn-start:active {
+    opacity: .5; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/style\.scss}line{font-family:\0000329}}
+.card-item {
+  width: 2.3rem;
+  height: 2.4rem;
+  background: url("../images/brand-close.png") no-repeat center/cover;
+  -webkit-animation: myfirst 3s ease 3s 1 normal both;
+          animation: myfirst 3s ease 3s 1 normal both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/lijun\/Documents\/code-notes\/css\/\%E6\%8A\%BD\%E5\%A5\%96\/sass\/style\.scss}line{font-family:\0000336}}
+.mask {
+  z-index: 100;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); }
+
+@-webkit-keyframes myfirst {
+  0% {
+    -webkit-transform: scale(1) rotateY(0deg);
+            transform: scale(1) rotateY(0deg); }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+            transform: scale(1) rotateY(180deg); } }
+
+@keyframes myfirst {
+  0% {
+    -webkit-transform: scale(1) rotateY(0deg);
+            transform: scale(1) rotateY(0deg); }
+  100% {
+    -webkit-transform: scale(1) rotateY(180deg);
+            transform: scale(1) rotateY(180deg); } }
+
+/*# sourceMappingURL=style.css.map */

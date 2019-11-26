@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>画个B脸</title>
+	</head>
+
+	<body>
+		<div class="face">
+
+		</div>
+	</body>
+
+	<style>
+		.face {
+			position: relative;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			margin: 200px auto;
+			background-color: #f2c8b2;
+			box-shadow: 0px 0px 0 1px #000, 
+			-30px -36px 0 -10px #000, 
+			-44px -40px 0 15px #fff, 
+			-44px -40px 0 16px #000, 
+			30px -36px 0 -10px #333333, 
+			44px -40px 0 15px #fff, 
+			44px -40px 0 16px, 
+			0 10px 0 120px #fff1f1, 
+			0 10px 0 121px #000,
+			0 220px 0 50px #fff1f1,
+			0 220px 0 51px #000,
+			-80px 200px 0 5px #000,
+			80px 200px 0 5px #000,
+			-30px 300px 0 5px #000,
+			30px 300px 0 5px #000;
+		}
+		
+		.face:before {
+			content: '';
+			position: absolute;
+			bottom: -80px;
+			left: -55px;
+			width: 144px;
+			height: 30px;
+			background: #f00;
+			border-radius: 50%;
+		}
+		
+		.face:after {
+			content: '你好，我叫李俊！';
+			position: absolute;
+			width: 220px;
+			top: -70px;
+			right: -240px;
+			font-size: 24px;
+			-webkit-transform: rotate(45deg)
+		}
+		
+		</html>

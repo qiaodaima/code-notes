@@ -1,0 +1,448 @@
+<!-- 文章内容 开始 -->
+<div class="frame-content-wrap">
+    <div class="tit-con-wrap">
+        <h1>
+            <span>gulp常用配置</span>
+        </h1>
+    </div>
+
+    <blockquote class="p-quote-item">
+        <p>以下代码段仅做说明示范作用，实际使用需稍加修改</p>
+    </blockquote>
+
+    <!-- 常用插件 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>常用插件</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    /**
+                    * npm 安装命令 npm install name --save-dev
+                    * gulp-concat               合并文件
+                    * browser-sync              自动刷新，静态服务
+                    * gulp-load-plugins         自动加载gulp插件
+                    * gulp-autoprefixer         设置浏览器版本自动处理浏览器前缀
+                    * gulp-uglify               压缩js文件
+                    * gulp-csso                 压缩优化css
+                    * gulp-sass                 编译sass
+                    * gulp-sourcemaps           生层map文件
+                    * gulp-clean                删除文件
+                    * gulp-sequence             让任务顺序执行【这个插件没有使用】
+                    * gulp-htmlmin              压缩页面的html
+                    * gulp-jshint               校验js语法     依赖 jshint
+                    * Email:674059309@qq.com
+                    * www.qiaodaima.me
+                    */
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 常用插件 结束 -->
+
+    <!-- 准备工作 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>准备工作</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    /**
+                    * 以【gulp】开头的组件 在安装后已经自动加载，无须再引入，
+                    * 当使用【gulp-rename】和【gulp-ruby-sass】这两个插件的时候，
+                    * 就可以使用【$.rename】和【$.rubySass】来代替了,
+                    * 也就是原始插件名【去掉gulp-前缀】，改成【$.】，之后再转换为驼峰命名。
+                    */
+                    var gulp        = require('gulp');
+                    var $           = require('gulp-load-plugins')();
+                    var browserSync = require('browser-sync').create();
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 准备工作 结束 -->
+
+    <!-- 静态服务器 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>静态服务器</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 静态服务器
+                    gulp.task('serve', function() {
+                    return browserSync.init({
+                        server: {
+                            baseDir: config.dist.path
+                        }
+                    });
+                });
+                // gulp.watch([config.dev.path + '**/*']).on('change', browserSync.reload);
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 静态服务器 结束 -->
+
+    <!-- 给静态文件添加MD5 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>给静态文件添加MD5</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 给静态文件添加MD5
+                    gulp.task('fileMD5', function(){
+                        return gulp.src('./development/css/*')
+                                   .pipe($.rev())
+                                   .pipe(gulp.dest('./production/'));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 给静态文件添加MD5 结束 -->
+
+    <!-- 压缩css 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>压缩css</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 压缩css
+                    gulp.task('minCss', function(){
+                        return gulp.src('./development/css/frame.css')
+                                   .pipe($.csso())
+                                   .pipe(gulp.dest('./production/'));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 压缩css 结束 -->
+
+    <!-- 检查、压缩、合并js 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>检查、压缩、合并js</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 检查、压缩、合并js
+                    gulp.task('concatJs', ['cleanJsFile'], function(){
+                        return gulp.src([config.dev.scriptsPath + '**/*.js', config.dev.directivesPath + '**/*.js', config.dev.viewPath + '**/*.js'])
+                                   .pipe($.sourcemaps.init())
+                                   .pipe($.jshint.reporter('default'))
+                                   .pipe($.concat('appCode.js'))
+                                   .pipe($.uglify({
+                                        mangle: true, // 是否修改变量名，默认为 true
+                                        compress: true // 是否完全压缩，默认为 true
+                                   }))
+                                   .pipe($.sourcemaps.write('./'))
+                                   .pipe(gulp.dest(config.dist.scriptsPath))
+                                   .pipe(browserSync.reload({stream:true}));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 检查、压缩、合并js 结束 -->
+
+    <!-- 文件合并 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>文件合并</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 文件合并
+                    gulp.task('fileConcat', function(){
+                        return gulp.src( './development/css/test.css' )
+                                   .pipe($.concat('all.css'))
+                                   .pipe(gulp.dest('./production/'));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 文件合并 结束 -->
+
+    <!-- 删除目录 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>删除目录</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    //删除目录
+                    gulp.task('delFile', function(){
+                        del('../' + productionFileName);
+                        console.log("文件删除执行完毕！");
+                    });
+
+                    //删除目录
+                    gulp.task('clean', function(){
+                        return gulp.src(config.dist.path)
+                                   .pipe($.clean());
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 删除目录 结束 -->
+
+    <!-- css自动处理浏览器前缀 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>css自动处理浏览器前缀</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    //css自动处理浏览器前缀
+                    gulp.task('autoprefixer', function(){
+                        return gulp.src('development/css/test.css')
+                                   .pipe($.autoprefixer({
+                                        // http://browserl.ist   可以在这个页面输入查询参数
+                                        // ● last 2 versions: 主流浏览器的最新两个版本
+                                        // ● last 1 Chrome versions: 谷歌浏览器的最新版本
+                                        // ● last 2 Explorer versions: IE的最新两个版本
+                                        // ● last 3 Safari versions: 苹果浏览器最新三个版本
+                                        // ● Firefox >= 20: 火狐浏览器的版本大于或等于20
+                                        // ● iOS 7: IOS7版本
+                                        // ● Firefox ESR: 最新ESR版本的火狐
+                                        // ● > 5%: 全球统计有超过5%的使用率
+                                        browsers: ['last 4 Explorer versions', 'Chrome >= 0', 'Firefox >= 0', 'Opera >= 0'],
+                                        cascade: true,
+                                        remove: true
+                                   }))
+                                   .pipe(gulp.dest('./production/css'));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- css自动处理浏览器前缀 结束 -->
+
+    <!-- 压缩html 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>压缩html</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    /*
+                    * 使用gulp-htmlmin压缩html，可以压缩页面javascript、css，
+                    * 去除页面空格、注释，删除多余属性等操作
+                    */
+                    var htmlMinOptions = {
+                        removeComments: true,//清除HTML注释
+                        collapseWhitespace: true,//压缩HTML
+                        collapseBooleanAttributes: true,//省略布尔属性的值 &lt;input checked=&quot;true&quot;/&gt; ==&gt; &lt;input /&gt;
+                        removeEmptyAttributes: true,//删除所有空格作属性值 &lt;input id=&quot;&quot; /&gt; ==&gt; &lt;input /&gt;
+                        removeScriptTypeAttributes: true,//删除&lt;script&gt;的type=&quot;text/javascript&quot;
+                        removeStyleLinkTypeAttributes: true,//删除&lt;style&gt;和&lt;link&gt;的type=&quot;text/css&quot;
+                        minifyJS: true,//压缩页面JS
+                        minifyCSS: true//压缩页面CSS
+                    };
+
+                    gulp.task('copyDirectivesDir', ['cleanDirectivesDir'], function(){
+                        return gulp.src(config.dev.directivesPath + '**/*.html')
+                                   .pipe($.htmlmin(htmlMinOptions))
+                                   .pipe(gulp.dest(config.dist.directivesPath))
+                                   .pipe(browserSync.reload({stream:true}));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 压缩html 结束 -->
+
+    <!-- 编译sass 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>编译sass</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+                    // 编译sass
+                    gulp.task('sass', ['cleanCssFile'], function(){
+                        return gulp.src(config.dev.sassPath + '**/*.scss')
+                                   .pipe($.sourcemaps.init())
+                                   .pipe($.sass({outputStyle: 'expanded'}).on('error', $.sass.logError))
+                                   .pipe($.sourcemaps.write('./'))
+                                   .pipe(gulp.dest(config.dist.cssPath))
+                                   .pipe(browserSync.reload({stream:true}));
+                    });
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- 编译sass 结束 -->
+
+    <!--  开始 -->
+    <!-- <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-js">
+
+                </code>
+            </pre>
+        </div>
+    </div> -->
+    <!--  结束 -->
+
+
+
+
+
+
+    <!-- src参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>src参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-vim">
+                    1、gulp.src(globs[, options])
+                        1.1、说明：src方法是指定需要处理的源文件的路径
+                        1.2、globs：需要处理的源文件匹配符路径。类型(必填)：String or StringArray；
+                             通配符路径匹配示例：
+                             “src/a.js”：指定具体文件；
+                             “*”：匹配所有文件    例：src/*.js(包含src下的所有js文件)；
+                             “**”：匹配0个或多个子文件夹    例：src/**/*.js(包含src的0个或多个子文件夹下的js文件)；
+                             “{}”：匹配多个属性    例：src/{a,b}.js(包含a.js和b.js文件)  src/*.{jpg,png,gif}(src下的所有jpg/png/gif文件)；
+                             “!”：排除文件    例：!src/a.js(不包含src下的a.js文件)；
+                        1.3、options：  类型(可选)：Object，有3个属性buffer、read、base；
+                             options.buffer：  类型：Boolean  默认：true 设置为false，将返回file.content的流并且不缓冲文件，处理大文件时非常有用；
+                             options.read：  类型：Boolean  默认：true 设置false，将不执行读取文件操作，返回null；
+                             options.base：  类型：String  设置输出路径以某个路径的某个组成部分为基础向后拼接，具体看下面示例：
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- src参数说明 结束 -->
+
+    <!-- dest参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>dest参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    2、gulp.dest(path[, options])
+                        2.1、说明：dest方法是指定处理完后文件输出的路径；
+                        2.2、path：  类型(必填)：String or Function 指定文件输出路径，或者定义函数返回文件输出路径亦可；
+                        2.3、options：  类型(可选)：Object，有2个属性cwd、mode；
+                             options.cwd：  类型：String  默认：process.cwd()：前脚本的工作目录的路径 当文件输出路径为相对路径将会用到；
+                             options.mode：  类型：String  默认：0777 指定被创建文件夹的权限；
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- dest参数说明 结束 -->
+
+    <!-- task参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>task参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    3、gulp.task(name[, deps], fn)
+                        3.1、说明：task定义一个gulp任务；
+                        3.2、name：  类型(必填)：String 指定任务的名称（不应该有空格）；
+                        3.3、deps：  类型(可选)：StringArray，该任务依赖的任务（注意：被依赖的任务需要返回当前任务的事件流，请参看下面示例）；
+                        3.4、fn：  类型(必填)：Function 该任务调用的插件操作；
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- task参数说明 结束 -->
+
+    <!-- watch参数说明 开始 -->
+    <div class="p-content-item">
+        <div class="tit-wrap">
+            <p>
+                <i class="ico fa-cog"></i>
+                <span>watch参数说明</span>
+            </p>
+        </div>
+        <div class="con-wrap">
+            <pre>
+                <code class="language-html">
+                    4、gulp.watch(glob [, opts], tasks) or gulp.watch(glob [, opts, cb])
+                        4.1、说明：watch方法是用于监听文件变化，文件一修改就会执行指定的任务；
+                        4.2、glob：  需要处理的源文件匹配符路径。类型(必填)：String or StringArray；
+                        4.3、opts：  类型(可选)：Object 具体参看https://github.com/shama/gaze；
+                        4.4、tasks：  类型(必填)：StringArray 需要执行的任务的名称数组；
+                        4.5、cb(event)：  类型(可选)：Function 每个文件变化执行的回调函数；
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- watch参数说明 结束 -->
+</div>
+<!-- 文章内容 结束 -->

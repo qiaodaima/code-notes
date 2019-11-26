@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>状态管理</title>
+  </head>
+  <body>
+    <div id="demo">
+      <button @click="dec">-</button>
+      <span>{{count}}</span>
+      <button @click="inc">+</button>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vuex"></script>
+    <script>
+      const store = new Vuex.Store({
+        state: {
+          count: 0
+        },
+        mutations: {
+          inc: state => state.count++,
+          dec: state => state.count--
+        }
+      });
+
+      new Vue({
+        el: '#demo',
+        computed: {
+          count() {
+            return store.state.count
+          }
+        },
+        methods: {
+          inc() {
+            store.commit('inc');
+          },
+          dec() {
+            store.commit('dec');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
