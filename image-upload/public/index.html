@@ -29,16 +29,18 @@
     </head>
 
     <body>
-        <div class="tools">
-            <button class="btn">
-                <input type="file">
-                <span>图片上传</span>
-            </button>
+        <form action="/upload" enctype="multipart/form-data" method="post">
+            <div class="tools">
+                <button class="btn">
+                    <input type="file" name="myfile">
+                    <span>图片上传</span>
+                </button>
 
-            <button class="btn">
-                <input type="submit">
-                <span>确定</span>
-            </button>
-        </div>
+                <button class="btn">
+                    <input type="submit">
+                    <span>确定</span>
+                </button>
+            </div>
+        </form>
     </body>
 </html>
